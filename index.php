@@ -15,9 +15,9 @@ require_once 'includes/header.php';
     <div class="container hero-container">
         <div class="hero-content">
             <span class="badge badge-new" style="margin-bottom: 16px;"><i class="fa-solid fa-graduation-cap"></i> STEAM Learning 2026</span>
-            <h1 class="hero-title">Unlock the Power of <span>Robotics & Coding</span></h1>
+            <h1 class="hero-title"><?php echo get_page_block('home_hero_title', 'Unlock the Power of <span>Robotics & Coding</span>'); ?></h1>
             <p class="hero-desc">
-                From screen-free logical coding toys to advanced metal-build programmable robots, Maxibot inspires Sri Lanka's young minds to create, program, and innovate.
+                <?php echo htmlspecialchars(get_page_block('home_hero_subtitle', "From screen-free logical coding toys to advanced metal-build programmable robots, Maxibot inspires Sri Lanka's young minds to create, program, and innovate.")); ?>
             </p>
             <div class="hero-btns">
                 <a href="products.php" class="btn btn-primary">Explore Products <i class="fa-solid fa-bag-shopping"></i></a>
@@ -273,45 +273,28 @@ require_once 'includes/header.php';
             <p class="section-subtitle">See how Maxibot products are transforming STEAM learning in Sri Lanka.</p>
         </div>
         <div class="testimonials-grid">
-            <!-- T1 -->
-            <div class="testimonial-card">
-                <p class="testimonial-text">
-                    "Setting up the robotics lab at our school was effortless with Maxibot. The Starter Kit is incredibly durable, and our students were programming obstacle avoidance on day one."
-                </p>
-                <div class="testimonial-user">
-                    <div class="testimonial-avatar" style="background-color: var(--primary);">K</div>
-                    <div>
-                        <div class="testimonial-info-name">Mrs. K. Jayawardena</div>
-                        <div class="testimonial-info-role">ICT Headmistress, Colombo school</div>
+            <?php
+            try {
+                $t_stmt = $db->query("SELECT * FROM testimonials");
+                $all_t = $t_stmt->fetchAll();
+            } catch (Exception $e) {
+                $all_t = [];
+            }
+            foreach ($all_t as $t_item):
+            ?>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "<?php echo htmlspecialchars($t_item['text']); ?>"
+                    </p>
+                    <div class="testimonial-user">
+                        <div class="testimonial-avatar" style="background-color: var(--primary);"><?php echo htmlspecialchars($t_item['avatar']); ?></div>
+                        <div>
+                            <div class="testimonial-info-name"><?php echo htmlspecialchars($t_item['name']); ?></div>
+                            <div class="testimonial-info-role"><?php echo htmlspecialchars($t_item['role']); ?></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- T2 -->
-            <div class="testimonial-card">
-                <p class="testimonial-text">
-                    "My 9-year-old son spends hours building and tweaking his MaxiBot. It's the best educational gift we have got him. The Scratch software makes logic easy to absorb."
-                </p>
-                <div class="testimonial-user">
-                    <div class="testimonial-avatar" style="background-color: var(--secondary);">M</div>
-                    <div>
-                        <div class="testimonial-info-name">Dr. M. Perera</div>
-                        <div class="testimonial-info-role">Parent & Engineering Professor</div>
-                    </div>
-                </div>
-            </div>
-            <!-- T3 -->
-            <div class="testimonial-card">
-                <p class="testimonial-text">
-                    "As an electronic enthusiast, Maxibot is my primary supplier in Sri Lanka. Fast local shipping and authentic components like the ESP32 make prototyping a breeze."
-                </p>
-                <div class="testimonial-user">
-                    <div class="testimonial-avatar" style="background-color: var(--dark);">S</div>
-                    <div>
-                        <div class="testimonial-info-name">Shanaka Alwis</div>
-                        <div class="testimonial-info-role">Robotics Hobbyist & DIY Maker</div>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

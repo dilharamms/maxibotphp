@@ -22,11 +22,10 @@ require_once 'includes/header.php';
                         <div>
                             <h3 class="contact-detail-label">Ragama Office (Main Hub)</h3>
                             <p class="contact-detail-text">
-                                No. 559/6, Kandaliyaddapaluwa,<br>
-                                Ragama, Sri Lanka.
+                                <?php echo nl2br(htmlspecialchars(get_setting('contact_address_ragama', "No. 559/6, Kandaliyaddapaluwa,\nRagama, Sri Lanka."))); ?>
                             </p>
                             <p class="contact-detail-text" style="margin-top: 6px; font-weight: 600;">
-                                <i class="fa-solid fa-phone"></i> +94 762 012 900
+                                <i class="fa-solid fa-phone"></i> <?php echo htmlspecialchars(get_setting('contact_phone_ragama', '+94 762 012 900')); ?>
                             </p>
                         </div>
                     </div>
@@ -37,11 +36,10 @@ require_once 'includes/header.php';
                         <div>
                             <h3 class="contact-detail-label">Kotikawatta Outlet</h3>
                             <p class="contact-detail-text">
-                                236/2B, TC Road,<br>
-                                Kotikawatta, Sri Lanka.
+                                <?php echo nl2br(htmlspecialchars(get_setting('contact_address_kotikawatta', "236/2B, TC Road,\nKotikawatta, Sri Lanka."))); ?>
                             </p>
                             <p class="contact-detail-text" style="margin-top: 6px; font-weight: 600;">
-                                <i class="fa-solid fa-phone"></i> +94 11-419-3515
+                                <i class="fa-solid fa-phone"></i> <?php echo htmlspecialchars(get_setting('contact_phone_kotikawatta', '+94 11-419-3515')); ?>
                             </p>
                         </div>
                     </div>
@@ -51,8 +49,8 @@ require_once 'includes/header.php';
                         <div class="contact-detail-icon"><i class="fa-solid fa-envelope"></i></div>
                         <div>
                             <h3 class="contact-detail-label">Email Support</h3>
-                            <p class="contact-detail-text">info@maxibot.lk (General Inquiry)</p>
-                            <p class="contact-detail-text">sales@maxibot.lk (Refunds / Orders)</p>
+                            <p class="contact-detail-text"><?php echo htmlspecialchars(get_setting('contact_email_general', 'info@maxibot.lk')); ?> (General Inquiry)</p>
+                            <p class="contact-detail-text"><?php echo htmlspecialchars(get_setting('contact_email_sales', 'sales@maxibot.lk')); ?> (Refunds / Orders)</p>
                         </div>
                     </div>
                 </div>
@@ -60,7 +58,7 @@ require_once 'includes/header.php';
                 <!-- Operating Hours -->
                 <div style="margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border-color); font-size: 14px;">
                     <strong>Office Operating Hours:</strong><br>
-                    Monday - Saturday: 8:30 AM to 6:30 PM (Closed on Sundays & Poya Days)
+                    <?php echo htmlspecialchars(get_setting('operating_hours', 'Monday - Saturday: 8:30 AM to 6:30 PM (Closed on Sundays & Poya Days)')); ?>
                 </div>
             </div>
 

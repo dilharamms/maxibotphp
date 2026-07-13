@@ -25,11 +25,11 @@
                             <circle cx="24" cy="22" r="2.2" fill="#111827" />
                             <line x1="20" y1="5" x2="20" y2="10" stroke="#FFF" stroke-width="3" stroke-linecap="round" />
                             <circle cx="20" cy="4" r="2" fill="#029BA5" />
-                            <text x="45" y="33" font-family="'Outfit', sans-serif" font-size="22" font-weight="800" fill="#FFF">Maxi<tspan fill="#029BA5">Bot</tspan></text>
+                            <text x="45" y="33" font-family="'Outfit', sans-serif" font-size="22" font-weight="800" fill="#FFF"><?php echo format_logo_text($logo_text); ?></text>
                         </svg>
                     </div>
                     <p class="footer-about-text">
-                        Maxibot is dedicated to expanding STEAM and robotics education in Sri Lanka, equipping future-ready makers with premium parts and toys.
+                        <?php echo htmlspecialchars(get_setting('footer_desc', 'Maxibot is dedicated to expanding STEAM and robotics education in Sri Lanka, equipping future-ready makers with premium parts and toys.')); ?>
                     </p>
                     <div class="footer-socials">
                         <a href="https://facebook.com" target="_blank" class="footer-social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -88,7 +88,7 @@
             <!-- Footer Bottom Bar -->
             <div class="footer-bottom">
                 <div>
-                    © 2026 Maxibot Sri Lanka. All Rights Reserved. Designed to inspire young creators.
+                    © 2026 <?php echo htmlspecialchars($logo_text); ?> Sri Lanka. All Rights Reserved. Designed to inspire young creators.
                 </div>
                 <div style="display: flex; gap: 16px; font-size: 20px; align-items: center; opacity: 0.6;">
                     <i class="fa-brands fa-cc-visa" title="Visa"></i>
