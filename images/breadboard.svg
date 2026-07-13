@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="100%" height="100%">
+  <!-- White board body -->
+  <rect x="15" y="40" width="170" height="70" rx="4" fill="#fcfcfc" stroke="#e5e7eb" stroke-width="2" />
+  
+  <!-- Center separator line -->
+  <line x1="15" y1="75" x2="185" y2="75" stroke="#d1d5db" stroke-width="1.5" />
+  
+  <!-- Red Power Rail Lines -->
+  <line x1="20" y1="46" x2="180" y2="46" stroke="#ef4444" stroke-width="1.5" />
+  <line x1="20" y1="104" x2="180" y2="104" stroke="#ef4444" stroke-width="1.5" />
+  
+  <!-- Blue Power Rail Lines -->
+  <line x1="20" y1="52" x2="180" y2="52" stroke="#3b82f6" stroke-width="1.5" />
+  <line x1="20" y1="98" x2="180" y2="98" stroke="#3b82f6" stroke-width="1.5" />
+  
+  <!-- Tie Point Holes (Simulated by dots) -->
+  <g fill="#9ca3af">
+    <!-- Top power dots -->
+    <circle cx="30" cy="49" r="1" /><circle cx="45" cy="49" r="1" /><circle cx="60" cy="49" r="1" /><circle cx="75" cy="49" r="1" /><circle cx="90" cy="49" r="1" /><circle cx="105" cy="49" r="1" /><circle cx="120" cy="49" r="1" /><circle cx="135" cy="49" r="1" /><circle cx="150" cy="49" r="1" /><circle cx="165" cy="49" r="1" />
+    
+    <!-- Top terminal rows (5 rows, A-E) -->
+    <circle cx="30" cy="58" r="1" /><circle cx="30" cy="61" r="1" /><circle cx="30" cy="64" r="1" /><circle cx="30" cy="67" r="1" /><circle cx="30" cy="70" r="1" />
+    <circle cx="45" cy="58" r="1" /><circle cx="45" cy="61" r="1" /><circle cx="45" cy="64" r="1" /><circle cx="45" cy="67" r="1" /><circle cx="45" cy="70" r="1" />
+    <circle cx="60" cy="58" r="1" /><circle cx="60" cy="61" r="1" /><circle cx="60" cy="64" r="1" /><circle cx="60" cy="67" r="1" /><circle cx="60" cy="70" r="1" />
+    <circle cx="75" cy="58" r="1" /><circle cx="75" cy="61" r="1" /><circle cx="75" cy="64" r="1" /><circle cx="75" cy="67" r="1" /><circle cx="75" cy="70" r="1" />
+    <circle cx="90" cy="58" r="1" /><circle cx="90" cy="61" r="1" /><circle cx="90" cy="64" r="1" /><circle cx="90" cy="67" r="1" /><circle cx="90" cy="70" r="1" />
+    <circle cx="105" cy="58" r="1" /><circle cx="105" cy="61" r="1" /><circle cx="105" cy="64" r="1" /><circle cx="105" cy="67" r="1" /><circle cx="105" cy="70" r="1" />
+    <circle cx="120" cy="58" r="1" /><circle cx="120" cy="61" r="1" /><circle cx="120" cy="64" r="1" /><circle cx="120" cy="67" r="1" /><circle cx="120" cy="70" r="1" />
+    <circle cx="135" cy="58" r="1" /><circle cx="135" cy="61" r="1" /><circle cx="135" cy="64" r="1" /><circle cx="135" cy="67" r="1" /><circle cx="135" cy="70" r="1" />
+    <circle cx="150" cy="58" r="1" /><circle cx="150" cy="61" r="1" /><circle cx="150" cy="64" r="1" /><circle cx="150" cy="67" r="1" /><circle cx="150" cy="70" r="1" />
+    <circle cx="165" cy="58" r="1" /><circle cx="165" cy="61" r="1" /><circle cx="165" cy="64" r="1" /><circle cx="165" cy="67" r="1" /><circle cx="165" cy="70" r="1" />
+    
+    <!-- Bottom terminal rows (5 rows, F-J) -->
+    <circle cx="30" cy="80" r="1" /><circle cx="30" cy="83" r="1" /><circle cx="30" cy="86" r="1" /><circle cx="30" cy="89" r="1" /><circle cx="30" cy="92" r="1" />
+    <circle cx="45" cy="80" r="1" /><circle cx="45" cy="83" r="1" /><circle cx="45" cy="86" r="1" /><circle cx="45" cy="89" r="1" /><circle cx="45" cy="92" r="1" />
+    <circle cx="60" cy="80" r="1" /><circle cx="60" cy="83" r="1" /><circle cx="60" cy="86" r="1" /><circle cx="60" cy="89" r="1" /><circle cx="60" cy="92" r="1" />
+    <circle cx="75" cy="80" r="1" /><circle cx="75" cy="83" r="1" /><circle cx="75" cy="86" r="1" /><circle cx="75" cy="89" r="1" /><circle cx="75" cy="92" r="1" />
+    <circle cx="90" cy="80" r="1" /><circle cx="90" cy="83" r="1" /><circle cx="90" cy="86" r="1" /><circle cx="90" cy="89" r="1" /><circle cx="90" cy="92" r="1" />
+    <circle cx="105" cy="80" r="1" /><circle cx="105" cy="83" r="1" /><circle cx="105" cy="86" r="1" /><circle cx="105" cy="89" r="1" /><circle cx="105" cy="92" r="1" />
+    <circle cx="120" cy="80" r="1" /><circle cx="120" cy="83" r="1" /><circle cx="120" cy="86" r="1" /><circle cx="120" cy="89" r="1" /><circle cx="120" cy="92" r="1" />
+    <circle cx="135" cy="80" r="1" /><circle cx="135" cy="83" r="1" /><circle cx="135" cy="86" r="1" /><circle cx="135" cy="89" r="1" /><circle cx="135" cy="92" r="1" />
+    <circle cx="150" cy="80" r="1" /><circle cx="150" cy="83" r="1" /><circle cx="150" cy="86" r="1" /><circle cx="150" cy="89" r="1" /><circle cx="150" cy="92" r="1" />
+    <circle cx="165" cy="80" r="1" /><circle cx="165" cy="83" r="1" /><circle cx="165" cy="86" r="1" /><circle cx="165" cy="89" r="1" /><circle cx="165" cy="92" r="1" />
+
+    <!-- Bottom power dots -->
+    <circle cx="30" cy="101" r="1" /><circle cx="45" cy="101" r="1" /><circle cx="60" cy="101" r="1" /><circle cx="75" cy="101" r="1" /><circle cx="90" cy="101" r="1" /><circle cx="105" cy="101" r="1" /><circle cx="120" cy="101" r="1" /><circle cx="135" cy="101" r="1" /><circle cx="150" cy="101" r="1" /><circle cx="165" cy="101" r="1" />
+  </g>
+</svg>
