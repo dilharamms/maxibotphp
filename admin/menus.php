@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once dirname(__DIR__) . '/includes/db.php';
-require_once __DIR__ . '/includes/admin-nav.php';
+require_once __DIR__ . '/includes/auth-check.php';
 
 $message = '';
 $message_type = '';

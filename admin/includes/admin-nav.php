@@ -1,18 +1,10 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-// Security Check: Redirect to login if not authenticated
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    header("Location: login.php");
-    exit();
-}
-
 // Helper to check active link
-function is_active_admin_page($name) {
-    $current_file = basename($_SERVER['PHP_SELF']);
-    return ($current_file === $name) ? 'active' : '';
+if (!function_exists('is_active_admin_page')) {
+    function is_active_admin_page($name) {
+        $current_file = basename($_SERVER['PHP_SELF']);
+        return ($current_file === $name) ? 'active' : '';
+    }
 }
 ?>
 <div class="admin-sidebar">
