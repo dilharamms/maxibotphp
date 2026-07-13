@@ -169,91 +169,71 @@ require_once 'includes/header.php';
 </section>
 <?php endif; ?>
 
-<!-- 5. Software Showcase: MaxiCode -->
-<?php if (isset($sections['software']) && $sections['software']['is_active']): 
-    $s = $sections['software'];
-?>
-<section class="software-section section-padding">
-    <div class="container software-grid">
-        <div>
-            <span class="spotlight-pre" style="color: var(--secondary);"><?php echo htmlspecialchars($s['subtitle']); ?></span>
-            <h2><?php echo htmlspecialchars($s['title']); ?></h2>
-            <p style="color: #94a3b8; font-size: 16px; margin: 20px 0 30px 0;">
-                <?php echo htmlspecialchars($s['description']); ?>
-            </p>
-            <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px;">
-                <div style="display: flex; gap: 12px; align-items: flex-start;">
-                    <i class="fa-solid fa-cubes" style="color: var(--secondary); font-size: 20px; margin-top: 4px;"></i>
-                    <div>
-                        <h4 style="color: #fff; margin-bottom: 4px;">Block Programming</h4>
-                        <p style="color: #64748b; font-size: 13px;">Drag-and-drop mechanics make it easy to learn logic flow, variables, and loops.</p>
-                    </div>
-                </div>
-                <div style="display: flex; gap: 12px; align-items: flex-start;">
-                    <i class="fa-brands fa-python" style="color: var(--secondary); font-size: 20px; margin-top: 4px;"></i>
-                    <div>
-                        <h4 style="color: #fff; margin-bottom: 4px;">Python Translation</h4>
-                        <p style="color: #64748b; font-size: 13px;">One-click conversion teaches syntax structures as students transition to text programming.</p>
-                    </div>
-                </div>
+<!-- Product Carousel Section (Replaced Software Showcase) -->
+<section class="section-padding featured-products-section" style="background-color: var(--light); border-bottom: 1px solid var(--border-color); overflow: hidden;">
+    <div class="container">
+        <div class="section-title-wrap" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px;">
+            <div>
+                <span class="spotlight-pre" style="color: var(--secondary); font-weight: 700;">Best Sellers</span>
+                <h2 class="section-title" style="margin-top: 8px; margin-bottom: 0;">Featured STEAM & Robotics Kits</h2>
+                <p class="section-subtitle" style="margin-top: 8px;">Explore our most popular educational programming robots, electronics, and smart kits.</p>
             </div>
-            <?php if ($s['btn_text']): ?>
-                <a href="<?php echo htmlspecialchars($s['btn_url']); ?>" class="btn btn-secondary"><?php echo htmlspecialchars($s['btn_text']); ?> <i class="fa-solid fa-download"></i></a>
-            <?php endif; ?>
+            <div class="carousel-nav" style="display: flex; gap: 10px;">
+                <button type="button" class="btn btn-outline" id="prev-feat-btn" style="width: 40px; height: 40px; border-radius: 50%; padding: 0; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition);"><i class="fa-solid fa-chevron-left"></i></button>
+                <button type="button" class="btn btn-outline" id="next-feat-btn" style="width: 40px; height: 40px; border-radius: 50%; padding: 0; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition);"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
         </div>
         
-        <!-- CSS Simulated Blockly Code Mockup -->
-        <div class="software-mockup">
-            <div class="mockup-header">
-                <div class="mockup-dots">
-                    <span class="mockup-dot dot-red"></span>
-                    <span class="mockup-dot dot-yellow"></span>
-                    <span class="mockup-dot dot-green"></span>
-                </div>
-                <span class="mockup-title">MaxiCode v2.5.0 - Workspace</span>
-                <span style="color: #64748b; font-size: 12px;"><i class="fa-solid fa-play"></i> Run</span>
-            </div>
-            <div class="mockup-content">
-                <div class="mockup-sidebar">
-                    <div class="mockup-block-cat cat-motion"><i class="fa-solid fa-person-running"></i> Motion</div>
-                    <div class="mockup-block-cat cat-looks"><i class="fa-solid fa-eye"></i> Looks</div>
-                    <div class="mockup-block-cat cat-control"><i class="fa-solid fa-repeat"></i> Control</div>
-                    <div class="mockup-block-cat cat-operators"><i class="fa-solid fa-calculator"></i> Math</div>
-                </div>
-                <div class="mockup-canvas">
-                    <div class="scratch-block scratch-block-hat">
-                        <i class="fa-solid fa-flag"></i> when green flag clicked
+        <div class="product-carousel-track" id="product-carousel" style="display: flex; gap: 24px; overflow-x: auto; scroll-behavior: smooth; padding: 10px 4px 20px 4px; scrollbar-width: none; -ms-overflow-style: none;">
+            <?php foreach ($featured_products as $p): ?>
+                <div class="product-card" style="min-width: 280px; max-width: 280px; flex-shrink: 0; background: #fff; border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 20px; display: flex; flex-direction: column; justify-content: space-between; transition: all 0.3s ease; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                    <div>
+                        <div style="background-color: var(--light); border-radius: 6px; padding: 20px; display: flex; align-items: center; justify-content: center; height: 160px; margin-bottom: 16px; overflow: hidden;">
+                            <img src="<?php echo htmlspecialchars($p['image']); ?>" alt="<?php echo htmlspecialchars($p['name']); ?>" style="max-height: 100%; max-width: 100%; object-fit: contain; mix-blend-mode: multiply;">
+                        </div>
+                        <span style="font-size: 11px; text-transform: uppercase; color: var(--secondary); font-weight: 700; letter-spacing: 0.5px;"><?php echo htmlspecialchars($p['category_name']); ?></span>
+                        <h3 style="font-size: 15px; margin: 6px 0; line-height: 1.4; font-family: 'Outfit', sans-serif; font-weight: 600; color: var(--dark);"><?php echo htmlspecialchars($p['name']); ?></h3>
+                        <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+                            <span style="color: #f59e0b; font-size: 12px;"><i class="fa-solid fa-star"></i> <?php echo number_format($p['rating'], 1); ?></span>
+                            <span style="color: var(--text-muted); font-size: 12px;">(<?php echo $p['reviews']; ?> reviews)</span>
+                        </div>
                     </div>
-                    <div class="scratch-block scratch-block-stack" style="background-color: var(--secondary);">
-                        initialize ultrasonic sensor on Port 3
-                    </div>
-                    <div class="scratch-block scratch-block-stack" style="background-color: #8b5cf6;">
-                        repeat forever
-                    </div>
-                    <div class="scratch-block scratch-block-nested" style="background-color: #f59e0b;">
-                        if &lt; distance <span style="background-color: #0f172a; padding: 2px 6px; border-radius: 4px;">20 cm</span> &gt; then
-                    </div>
-                    <div class="scratch-block scratch-block-nested" style="background-color: #ef4444; margin-left: 24px;">
-                        stop motors &amp; reverse 2s
-                    </div>
-                    <div class="scratch-block scratch-block-nested" style="background-color: var(--primary); margin-left: 24px;">
-                        turn robot right 90 degrees
-                    </div>
-                    <div class="scratch-block scratch-block-nested" style="background-color: #8b5cf6; margin-left: 16px;">
-                        else
-                    </div>
-                    <div class="scratch-block scratch-block-nested" style="background-color: var(--primary); margin-left: 24px;">
-                        move forward at speed 100%
-                    </div>
-                    <div class="scratch-block scratch-block-end">
-                        end repeat
+                    <div>
+                        <div style="font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 14px; font-family: 'Outfit', sans-serif;">LKR <?php echo number_format($p['price']); ?></div>
+                        <a href="product-detail.php?id=<?php echo $p['id']; ?>" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 13px; padding: 10px 14px;">View Details <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
                 </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
-<?php endif; ?>
+
+<style>
+.product-carousel-track::-webkit-scrollbar {
+    display: none;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+    border-color: var(--primary) !important;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('product-carousel');
+    const prevBtn = document.getElementById('prev-feat-btn');
+    const nextBtn = document.getElementById('next-feat-btn');
+    if (track && prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', function() {
+            track.scrollBy({ left: -304, behavior: 'smooth' });
+        });
+        nextBtn.addEventListener('click', function() {
+            track.scrollBy({ left: 304, behavior: 'smooth' });
+        });
+    }
+});
+</script>
 
 <!-- 6. Educational Solutions Showcase -->
 <?php if (isset($sections['solutions']) && $sections['solutions']['is_active']): 

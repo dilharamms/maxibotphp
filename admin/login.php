@@ -77,11 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 Login to Dashboard <i class="fa-solid fa-arrow-right-to-bracket"></i>
             </button>
         </form>
-        
-        <div style="margin-top: 24px; text-align: center; font-size: 12px; color: var(--text-muted); background-color: var(--light); padding: 10px; border-radius: var(--border-radius); border: 1px dashed var(--border-color);">
-            <strong>Default Credentials:</strong><br>
-            Username: <code style="font-weight: 600;">admin</code> &nbsp;|&nbsp; Password: <code style="font-weight: 600;">admin123</code>
-        </div>
     </div>
 
 </body>
