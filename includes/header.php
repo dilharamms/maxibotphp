@@ -24,6 +24,7 @@ function format_logo_text($text) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo isset($page_title) ? $page_title . " | Maxibot Sri Lanka" : "Maxibot | STEAM Education & Robotics Sri Lanka"; ?></title>
     <meta name="description" content="Empowering the next generation of innovators in Sri Lanka with high-quality STEAM robotics kits, microcontrollers, electronic sensors, and creative educational toys.">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <!-- FontAwesome for UI icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -40,8 +41,9 @@ function format_logo_text($text) {
     <header class="header-wrapper" id="sticky-header">
         <div class="container header-container">
             <!-- Brand Logo -->
-            <a href="index.php" class="logo" id="main-logo-link">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="160" height="40" aria-label="Maxibot Logo">
+            <a href="index.php" class="logo" id="main-logo-link" style="display: flex; align-items: center;">
+                <img src="images/loo colored.png" alt="Maxibot Logo" style="height: 42px; width: auto; object-fit: contain;" onerror="this.style.display='none'; document.getElementById('svg-logo').style.display='block';">
+                <svg id="svg-logo" style="display: none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="160" height="40" aria-label="Maxibot Logo">
                     <rect x="5" y="10" width="30" height="30" rx="6" fill="#6568FE" />
                     <rect x="11" y="16" width="18" height="12" rx="3" fill="#029BA5" />
                     <circle cx="16" cy="22" r="2.2" fill="#FFF" />

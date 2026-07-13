@@ -17,8 +17,9 @@
             <div class="footer-grid">
                 <!-- Branding Col -->
                 <div class="footer-brand-col">
-                    <div class="logo footer-logo">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="150" height="38" aria-label="Maxibot Logo">
+                    <div class="logo footer-logo" style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <img src="images/logo-w.png" alt="Maxibot Logo" style="height: 38px; width: auto; object-fit: contain;" onerror="this.style.display='none'; document.getElementById('svg-footer-logo').style.display='block';">
+                        <svg id="svg-footer-logo" style="display: none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="150" height="38" aria-label="Maxibot Logo">
                             <rect x="5" y="10" width="30" height="30" rx="6" fill="#FFF" />
                             <rect x="11" y="16" width="18" height="12" rx="3" fill="#029BA5" />
                             <circle cx="16" cy="22" r="2.2" fill="#111827" />

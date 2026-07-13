@@ -348,4 +348,19 @@ require_once 'includes/header.php';
 </section>
 <?php endif; ?>
 
+<!-- Trusted Partners Block -->
+<section class="partners-section" style="background-color: #fff; border-top: 1px solid var(--border-color); padding: 50px 0;">
+    <div class="container">
+        <h3 style="text-align: center; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 24px; font-weight: 600;">Our Educational & Prototyping Partners</h3>
+        <div class="partners-logo-grid" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px 50px;">
+            <img src="images/partners/creative-kids-logo.png" alt="Creative Kids" style="height: 44px; width: auto; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: var(--transition);" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'">
+            <img src="images/partners/bashademy-logo-web.png" alt="Bashademy" style="height: 40px; width: auto; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: var(--transition);" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'">
+            <img src="images/partners/mms-1.png" alt="MMS" style="height: 44px; width: auto; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: var(--transition);" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'">
+            <img src="images/partners/mp-1.png" alt="MP" style="height: 44px; width: auto; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: var(--transition);" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'">
+            <img src="images/partners/mt-1.png" alt="MT" style="height: 44px; width: auto; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: var(--transition);" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'">
+            <img src="images/partners/WhatsApp Image 2026-07-09 at 11.35.02 PM-Photoroom.png" alt="Maxibot Partner" style="height: 48px; width: auto; object-fit: contain; filter: grayscale(100%); opacity: 0.6; transition: var(--transition);" onmouseover="this.style.filter='none'; this.style.opacity='1'" onmouseout="this.style.filter='grayscale(100%)'; this.style.opacity='0.6'">
+        </div>
+    </div>
+</section>
+
 <?php require_once 'includes/footer.php'; ?>
