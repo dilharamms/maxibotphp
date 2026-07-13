@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_blocks'])) {
     
     try {
         $db->beginTransaction();
-        $stmt = $db->prepare("INSERT OR REPLACE INTO pages (slug, section, block_key, block_value) VALUES (:slug, :section, :block_key, :block_value)");
+        $stmt = $db->prepare("REPLACE INTO pages (slug, section, block_key, block_value) VALUES (:slug, :section, :block_key, :block_value)");
         
         // Define metadata mapping for each block key
         $meta = [

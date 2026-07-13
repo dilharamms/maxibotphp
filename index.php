@@ -1,12 +1,28 @@
 <?php
 $page_title = "STEAM Education & Robotics Sri Lanka";
 $active_nav = "home";
+require_once 'includes/db.php';
 require_once 'includes/products-db.php';
 $featured_products = ProductsDB::get_featured_products();
+
+// Fetch homepage sections details
+$sections = [];
+try {
+    $stmt = $db->query("SELECT * FROM homepage_sections");
+    while ($row = $stmt->fetch()) {
+        $sections[$row['section_id']] = $row;
+    }
+} catch (Exception $e) {
+    // Fail silently
+}
+
 require_once 'includes/header.php';
 ?>
 
-<!-- Hero Section -->
+<!-- 1. Hero Section -->
+<?php if (isset($sections['hero']) && $sections['hero']['is_active']): 
+    $s = $sections['hero'];
+?>
 <section class="hero-section">
     <div class="hero-bg-shapes">
         <div class="hero-shape hero-shape-1"></div>
@@ -14,28 +30,34 @@ require_once 'includes/header.php';
     </div>
     <div class="container hero-container">
         <div class="hero-content">
-            <span class="badge badge-new" style="margin-bottom: 16px;"><i class="fa-solid fa-graduation-cap"></i> STEAM Learning 2026</span>
-            <h1 class="hero-title"><?php echo get_page_block('home_hero_title', 'Unlock the Power of <span>Robotics & Coding</span>'); ?></h1>
+            <span class="badge badge-new" style="margin-bottom: 16px;"><i class="fa-solid fa-graduation-cap"></i> <?php echo htmlspecialchars($s['subtitle']); ?></span>
+            <h1 class="hero-title"><?php echo $s['title']; ?></h1>
             <p class="hero-desc">
-                <?php echo htmlspecialchars(get_page_block('home_hero_subtitle', "From screen-free logical coding toys to advanced metal-build programmable robots, Maxibot inspires Sri Lanka's young minds to create, program, and innovate.")); ?>
+                <?php echo htmlspecialchars($s['description']); ?>
             </p>
             <div class="hero-btns">
-                <a href="products.php" class="btn btn-primary">Explore Products <i class="fa-solid fa-bag-shopping"></i></a>
+                <?php if ($s['btn_text']): ?>
+                    <a href="<?php echo htmlspecialchars($s['btn_url']); ?>" class="btn btn-primary"><?php echo htmlspecialchars($s['btn_text']); ?> <i class="fa-solid fa-bag-shopping"></i></a>
+                <?php endif; ?>
                 <a href="solutions.php" class="btn btn-outline">For Classrooms <i class="fa-solid fa-school"></i></a>
             </div>
         </div>
         <div class="hero-image-wrapper">
-            <img src="images/maxibot_starter.png" alt="MaxiBot Starter DIY Robot" onerror="this.src='images/placeholder.svg'">
+            <img src="<?php echo htmlspecialchars($s['image']); ?>" alt="Hero Graphic" onerror="this.src='images/placeholder.svg'">
         </div>
     </div>
 </section>
+<?php endif; ?>
 
-<!-- Product Categories Grid Section -->
+<!-- 2. Product Categories Grid Section -->
+<?php if (isset($sections['categories']) && $sections['categories']['is_active']): 
+    $s = $sections['categories'];
+?>
 <section class="section-padding">
     <div class="container">
         <div class="section-title-wrap">
-            <h2 class="section-title">Fueling curiosity at every step</h2>
-            <p class="section-subtitle">We categorize our resources to support a progressive STEAM learning journey, serving schools, hobbyists, and young creators.</p>
+            <h2 class="section-title"><?php echo htmlspecialchars($s['title']); ?></h2>
+            <p class="section-subtitle"><?php echo htmlspecialchars($s['description']); ?></p>
         </div>
         <div class="categories-grid">
             <!-- Cat 1 -->
@@ -65,15 +87,19 @@ require_once 'includes/header.php';
         </div>
     </div>
 </section>
+<?php endif; ?>
 
-<!-- Spotlight Feature 1: MaxiBot Starter -->
+<!-- 3. Spotlight Feature 1: MaxiBot Starter -->
+<?php if (isset($sections['spotlight1']) && $sections['spotlight1']['is_active']): 
+    $s = $sections['spotlight1'];
+?>
 <section class="spotlight-section section-padding">
     <div class="container spotlight-grid">
         <div class="spotlight-content">
-            <span class="spotlight-pre">Flagship Robot Kit</span>
-            <h2 class="spotlight-title">MaxiBot Starter DIY Robot Kit</h2>
+            <span class="spotlight-pre"><?php echo htmlspecialchars($s['subtitle']); ?></span>
+            <h2 class="spotlight-title"><?php echo htmlspecialchars($s['title']); ?></h2>
             <p class="spotlight-text">
-                The perfect gateway to logical thinking and electronic engineering. MaxiBot Starter provides kids with an interactive hands-on experience of building a robot from scratch. Using high-quality aluminum chassis and block-based programming, coding becomes a fun, play-driven activity.
+                <?php echo htmlspecialchars($s['description']); ?>
             </p>
             <div class="spotlight-features">
                 <div class="spotlight-feat-item">
@@ -90,24 +116,30 @@ require_once 'includes/header.php';
                 </div>
             </div>
             <div class="hero-btns">
-                <a href="product-detail.php?id=1" class="btn btn-primary btn-sm">Buy Now (LKR 12,500)</a>
+                <?php if ($s['btn_text']): ?>
+                    <a href="<?php echo htmlspecialchars($s['btn_url']); ?>" class="btn btn-primary btn-sm"><?php echo htmlspecialchars($s['btn_text']); ?></a>
+                <?php endif; ?>
                 <a href="product-detail.php?id=1" class="btn btn-outline btn-sm">Learn More</a>
             </div>
         </div>
         <div class="spotlight-img">
-            <img src="images/maxibot_starter.png" alt="MaxiBot Starter DIY Robot Kit" onerror="this.src='images/placeholder.svg'" style="background-color: #f8fafc; padding: 40px; width: 100%;">
+            <img src="<?php echo htmlspecialchars($s['image']); ?>" alt="Spotlight Feature 1" onerror="this.src='images/placeholder.svg'" style="background-color: #f8fafc; padding: 40px; width: 100%;">
         </div>
     </div>
 </section>
+<?php endif; ?>
 
-<!-- Spotlight Feature 2: MaxiBot Ranger (Reversed Layout) -->
+<!-- 4. Spotlight Feature 2: MaxiBot Ranger (Reversed Layout) -->
+<?php if (isset($sections['spotlight2']) && $sections['spotlight2']['is_active']): 
+    $s = $sections['spotlight2'];
+?>
 <section class="spotlight-section section-padding" style="background-color: var(--light);">
     <div class="container spotlight-grid reverse">
         <div class="spotlight-content">
-            <span class="spotlight-pre">Advanced 3-in-1 Robotics</span>
-            <h2 class="spotlight-title">MaxiBot Ranger Kit</h2>
+            <span class="spotlight-pre"><?php echo htmlspecialchars($s['subtitle']); ?></span>
+            <h2 class="spotlight-title"><?php echo htmlspecialchars($s['title']); ?></h2>
             <p class="spotlight-text">
-                Ranger integrates three unique configurations: a high-speed tracked tank, a two-wheeled self-balancing raptor, and a three-wheeled racing car. Geared with advanced encoder motors, light sensors, and gyro stabilization, it enables students to delve deep into robot kinematics and code in Python.
+                <?php echo htmlspecialchars($s['description']); ?>
             </p>
             <div class="spotlight-features">
                 <div class="spotlight-feat-item">
@@ -124,24 +156,30 @@ require_once 'includes/header.php';
                 </div>
             </div>
             <div class="hero-btns">
-                <a href="product-detail.php?id=2" class="btn btn-secondary btn-sm">Shop Ranger (LKR 24,000)</a>
+                <?php if ($s['btn_text']): ?>
+                    <a href="<?php echo htmlspecialchars($s['btn_url']); ?>" class="btn btn-secondary btn-sm"><?php echo htmlspecialchars($s['btn_text']); ?></a>
+                <?php endif; ?>
                 <a href="product-detail.php?id=2" class="btn btn-outline btn-sm">Full Specifications</a>
             </div>
         </div>
         <div class="spotlight-img">
-            <img src="images/maxibot_ranger.png" alt="MaxiBot Ranger 3-in-1 Kit" onerror="this.src='images/placeholder.svg'" style="background-color: #fff; padding: 40px; width: 100%;">
+            <img src="<?php echo htmlspecialchars($s['image']); ?>" alt="Spotlight Feature 2" onerror="this.src='images/placeholder.svg'" style="background-color: #fff; padding: 40px; width: 100%;">
         </div>
     </div>
 </section>
+<?php endif; ?>
 
-<!-- Software Showcase: MaxiCode -->
+<!-- 5. Software Showcase: MaxiCode -->
+<?php if (isset($sections['software']) && $sections['software']['is_active']): 
+    $s = $sections['software'];
+?>
 <section class="software-section section-padding">
     <div class="container software-grid">
         <div>
-            <span class="spotlight-pre" style="color: var(--secondary);">Coding Environment</span>
-            <h2>MaxiCode Programming Software</h2>
+            <span class="spotlight-pre" style="color: var(--secondary);"><?php echo htmlspecialchars($s['subtitle']); ?></span>
+            <h2><?php echo htmlspecialchars($s['title']); ?></h2>
             <p style="color: #94a3b8; font-size: 16px; margin: 20px 0 30px 0;">
-                MaxiCode makes coding intuitive. Based on Scratch 3.0 block-coding, beginners can drag and drop logic blocks to control motors, read sensor outputs, and play sounds. When ready, switch to Python mode to see your code translated side-by-side!
+                <?php echo htmlspecialchars($s['description']); ?>
             </p>
             <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px;">
                 <div style="display: flex; gap: 12px; align-items: flex-start;">
@@ -159,7 +197,9 @@ require_once 'includes/header.php';
                     </div>
                 </div>
             </div>
-            <a href="software.php" class="btn btn-secondary">Download Software <i class="fa-solid fa-download"></i></a>
+            <?php if ($s['btn_text']): ?>
+                <a href="<?php echo htmlspecialchars($s['btn_url']); ?>" class="btn btn-secondary"><?php echo htmlspecialchars($s['btn_text']); ?> <i class="fa-solid fa-download"></i></a>
+            <?php endif; ?>
         </div>
         
         <!-- CSS Simulated Blockly Code Mockup -->
@@ -213,13 +253,17 @@ require_once 'includes/header.php';
         </div>
     </div>
 </section>
+<?php endif; ?>
 
-<!-- Educational Solutions Showcase -->
+<!-- 6. Educational Solutions Showcase -->
+<?php if (isset($sections['solutions']) && $sections['solutions']['is_active']): 
+    $s = $sections['solutions'];
+?>
 <section class="section-padding" style="background-color: #fff;">
     <div class="container">
         <div class="section-title-wrap">
-            <h2 class="section-title">Empowering Classrooms in Sri Lanka</h2>
-            <p class="section-subtitle">We partner with schools to establish future-ready makerspaces and code laboratories.</p>
+            <h2 class="section-title"><?php echo htmlspecialchars($s['title']); ?></h2>
+            <p class="section-subtitle"><?php echo htmlspecialchars($s['description']); ?></p>
         </div>
         <div class="solutions-grid">
             <!-- Solution 1 -->
@@ -264,13 +308,17 @@ require_once 'includes/header.php';
         </div>
     </div>
 </section>
+<?php endif; ?>
 
-<!-- Testimonials Section -->
+<!-- 7. Testimonials Section -->
+<?php if (isset($sections['testimonials']) && $sections['testimonials']['is_active']): 
+    $s = $sections['testimonials'];
+?>
 <section class="section-padding testimonials-section">
     <div class="container">
         <div class="section-title-wrap">
-            <h2 class="section-title">Loved by Teachers and Parents</h2>
-            <p class="section-subtitle">See how Maxibot products are transforming STEAM learning in Sri Lanka.</p>
+            <h2 class="section-title"><?php echo htmlspecialchars($s['title']); ?></h2>
+            <p class="section-subtitle"><?php echo htmlspecialchars($s['description']); ?></p>
         </div>
         <div class="testimonials-grid">
             <?php
@@ -298,5 +346,6 @@ require_once 'includes/header.php';
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <?php require_once 'includes/footer.php'; ?>

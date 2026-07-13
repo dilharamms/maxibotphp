@@ -20,13 +20,18 @@ if (!function_exists('is_active_admin_page')) {
             </a>
         </li>
         <li>
+            <a href="homepage.php" class="sidebar-link <?php echo is_active_admin_page('homepage.php'); ?>">
+                <i class="fa-solid fa-house-chimney"></i> Homepage Editor
+            </a>
+        </li>
+        <li>
             <a href="products.php" class="sidebar-link <?php echo is_active_admin_page('products.php'); ?>">
                 <i class="fa-solid fa-box-open"></i> Product Manager
             </a>
         </li>
         <li>
             <a href="pages.php" class="sidebar-link <?php echo is_active_admin_page('pages.php'); ?>">
-                <i class="fa-solid fa-file-invoice"></i> Page Block Editor
+                <i class="fa-solid fa-file-invoice"></i> Other Pages Editor
             </a>
         </li>
         <li>

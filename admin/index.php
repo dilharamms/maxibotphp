@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     try {
         $db->beginTransaction();
-        $stmt = $db->prepare("INSERT OR REPLACE INTO settings (key, value) VALUES (?, ?)");
+        $stmt = $db->prepare("REPLACE INTO settings (`key`, value) VALUES (?, ?)");
         foreach ($settings_to_update as $k => $v) {
             $stmt->execute([$k, trim($v)]);
         }
